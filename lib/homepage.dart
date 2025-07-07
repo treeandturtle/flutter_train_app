@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/seatpage.dart';
 import 'package:flutter_train_app/selectbutton.dart';
+import 'package:flutter_train_app/station_part.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -39,34 +41,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class StationPart extends StatelessWidget {
-  final String stationname;
-  final String stationtitle;
-  const StationPart({
-    super.key,
-    required this.stationname,
-    required this.stationtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          stationtitle,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey,
-          ),
-        ),
-        Text(stationname, style: TextStyle(fontSize: 40)),
-      ],
     );
   }
 }
