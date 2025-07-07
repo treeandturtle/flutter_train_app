@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_train_app/stationpage.dart';
+import 'package:flutter_train_app/page/stationpage.dart';
 
 class StationPart extends StatelessWidget {
   final String stationname;

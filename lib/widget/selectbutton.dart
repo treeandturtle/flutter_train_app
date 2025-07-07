@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_train_app/seatpage.dart';
+import 'package:flutter_train_app/page/seatpage.dart';
 
 class SeatSelectButton extends StatelessWidget {
   const SeatSelectButton({super.key});

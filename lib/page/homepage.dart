@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_train_app/seatpage.dart';
-import 'package:flutter_train_app/selectbutton.dart';
-import 'package:flutter_train_app/station_part.dart';
+
+import 'package:flutter_train_app/widget/selectbutton.dart';
+import 'package:flutter_train_app/page/station_part.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(title: Text('기차 예매')),
       backgroundColor: Colors.grey[200],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/widget/seatline.dart';
 
 class SeatPage extends StatelessWidget {
   final String startStaion;
@@ -63,6 +64,12 @@ class SeatPage extends StatelessWidget {
               SizedBox(width: 4),
               Text('선택안됨'),
             ],
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Seatline(),
+            ),
           ),
         ],
       ),
