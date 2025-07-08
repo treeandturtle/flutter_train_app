@@ -15,20 +15,25 @@ class StationPage extends StatelessWidget {
         child: ListView.builder(
           itemCount: train.stations.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.centerLeft,
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: Colors.grey[300]!,
-                    width: 1,
-                  ), // 아래 경계선
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop(train.stations[index]);
+              },
+              child: Container(
+                alignment: Alignment.centerLeft,
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.grey[300]!,
+                      width: 1,
+                    ), // 아래 경계선
+                  ),
                 ),
-              ),
-              child: Text(
-                train.stations[index],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                child: Text(
+                  train.stations[index],
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
               ),
             );
           },

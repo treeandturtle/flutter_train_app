@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Seat extends StatefulWidget {
-  const Seat({super.key});
+  final String col; // A~D
+  final int row; // 1~20
+  final Function(String col, int row, bool isSelected) onSelected;
+  const Seat({
+    super.key,
+    required this.col,
+    required this.row,
+    required this.onSelected,
+  });
 
   @override
   State<Seat> createState() => _SeatState();
@@ -13,6 +21,7 @@ class _SeatState extends State<Seat> {
     setState(() {
       isSelected = !isSelected;
     });
+    widget.onSelected(widget.col, widget.row, isSelected);
   }
 
   @override
