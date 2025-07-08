@@ -4,10 +4,12 @@ import 'package:flutter_train_app/page/stationpage.dart';
 class StationPart extends StatefulWidget {
   final String stationtitle;
   final Function(String?) onSelected;
+  final String? excludeStation;
   const StationPart({
     super.key,
     required this.stationtitle,
     required this.onSelected,
+    this.excludeStation,
   });
 
   @override
@@ -22,8 +24,10 @@ class _StationPartState extends State<StationPart> {
       onTap: () async {
         String? selectedStationPage = await Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) =>
-                StationPage(stationtitle: widget.stationtitle),
+            builder: (context) => StationPage(
+              stationtitle: widget.stationtitle,
+              excludeStation: widget.excludeStation,
+            ),
           ),
         );
         if (selectedStationPage != null) {

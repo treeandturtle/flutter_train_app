@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     // String? endStation; 상태가 아닌 지역 변수로 설정 시 다른 위젯으로 이동시 감지를 못함
     return Scaffold(
       appBar: AppBar(title: Text('기차 예매')),
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Colors.grey[200],
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   StationPart(
                     stationtitle: '출발역',
+                    excludeStation: endStation,
                     onSelected: (value) {
                       {
                         setState(() {
@@ -51,6 +52,7 @@ class _HomePageState extends State<HomePage> {
                   Container(width: 2, height: 50, color: Colors.grey[400]),
                   StationPart(
                     stationtitle: '도착역',
+                    excludeStation: startStation,
                     onSelected: (value) {
                       {
                         setState(() {

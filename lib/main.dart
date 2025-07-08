@@ -12,16 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter train app',
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
         useMaterial3: true,
-        brightness: Brightness.light,
-        scaffoldBackgroundColor: Colors.grey[200],
-        primaryColor: Colors.white,
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        colorSchemeSeed: Colors.black,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
 
         useMaterial3: true,
       ),

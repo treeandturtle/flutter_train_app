@@ -3,21 +3,30 @@ import 'package:flutter_train_app/train_model.dart';
 
 class StationPage extends StatelessWidget {
   final String stationtitle;
-  const StationPage({super.key, required this.stationtitle});
+  final String? excludeStation;
+
+  const StationPage({
+    super.key,
+    required this.stationtitle,
+    this.excludeStation,
+  });
 
   @override
   Widget build(BuildContext context) {
     Train train = Train();
+    final List<String> filteredStations = train.stations
+        .where((station) => station != excludeStation)
+        .toList();
     return Scaffold(
       appBar: AppBar(title: Text(stationtitle)),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView.builder(
-          itemCount: train.stations.length,
+          itemCount: filteredStations.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                Navigator.of(context).pop(train.stations[index]);
+                Navigator.of(context).pop(filteredStations[index]);
               },
               child: Container(
                 alignment: Alignment.centerLeft,
@@ -31,7 +40,7 @@ class StationPage extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  train.stations[index],
+                  filteredStations[index],
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
