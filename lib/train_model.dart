@@ -1,4 +1,5 @@
 class Train {
+  //전체 역 모델
   List<String> stations = [
     "수서",
     "동탄",

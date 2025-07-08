@@ -2,10 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/page/seatpage.dart';
 
+//출발역과 도착역이 정해지면 좌석을 선택하는 버튼 위젯
+//이 위젯은 출발역과 도착역을 선택한 후 좌석 선택 페이지로 이동하는 역할을 합니다.
+//출발역과 도착역이 선택되지 않은 경우에는 경고 다이얼로그를 표시합니다.
+
 class SeatSelectButton extends StatelessWidget {
-  String? startStation;
-  String? endStation;
-  SeatSelectButton({
+  final String? startStation;
+  final String? endStation;
+  const SeatSelectButton({
     super.key,
     required this.startStation,
     required this.endStation,
@@ -17,6 +21,9 @@ class SeatSelectButton extends StatelessWidget {
       height: 60,
       child: ElevatedButton(
         onPressed: () {
+          // 출발역과 도착역이 모두 선택되었는지 확인
+          // 선택되지 않은 경우 경고 다이얼로그 표시
+          // 선택된 경우 좌석 선택 페이지로 이동
           if (startStation == null || endStation == null) {
             showCupertinoDialog(
               context: context,
@@ -43,6 +50,7 @@ class SeatSelectButton extends StatelessWidget {
               },
             );
           } else {
+            //사실상 눌 처리는 필요없지만 혹시 몰라 추가
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => SeatPage(

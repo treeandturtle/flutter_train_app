@@ -2,12 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/page/homepage.dart';
 
+//예약하기 버튼 위젯
+//선택된 좌석을 보여주고 예매를 확인하는 다이얼로그
+//예매 확인 후 홈 페이지로 이동합니다.
+//선택된 좌석이 없을 때는 경고 메시지를 표시합니다.
 class ReservationButton extends StatelessWidget {
   final List<String> selectedSeats;
   const ReservationButton({super.key, required this.selectedSeats});
 
   @override
   Widget build(BuildContext context) {
+    // 선택된 좌석을 정렬하여 보여줍니다.
+    // 예를 들어 ["A-1", "B-3", "C-5"] 형태로 정렬됩니다.
+
     final sortedSeats = selectedSeats.toList()..sort();
     return SizedBox(
       height: 50,
