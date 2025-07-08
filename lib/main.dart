@@ -16,10 +16,28 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.white,
+          brightness: Brightness.light,
+          primaryContainer: Colors.white,
+          onPrimaryContainer: Colors.white,
+          primary: Colors.blue,
+          onPrimary: Colors.blue,
+        ),
+        scaffoldBackgroundColor: Colors.grey[200],
+        focusColor: Colors.red,
       ),
       darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.black38,
+          primary: Colors.blue,
+          surface: Colors.black38,
+
+          primaryContainer: Colors.grey[800],
+
+          brightness: Brightness.dark,
+        ),
+        scaffoldBackgroundColor: Colors.black38,
 
         useMaterial3: true,
       ),
