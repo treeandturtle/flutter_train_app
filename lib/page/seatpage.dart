@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/train_model.dart';
 import 'package:flutter_train_app/widget/reservation_button.dart';
 import 'package:flutter_train_app/widget/seatline.dart';
 
@@ -95,7 +96,13 @@ class _SeatPageState extends State<SeatPage> {
             ),
             // 예약하기 버튼 위젯을 사용하여 선택된 좌석을 보여주고 예매를 확인하는 다이얼로그를 표시
             // 예매 확인 후 홈 페이지로 이동합니다.
-            ReservationButton(selectedSeats: selectedSeats),
+            ReservationButton(
+              selectedSeats: selectedSeats,
+              selectedStation: StationModel(
+                startStation: widget.startStaion,
+                endStation: widget.endStation,
+              ),
+            ),
             SizedBox(height: 50),
           ],
         ),

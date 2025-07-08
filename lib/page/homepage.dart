@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/train_model.dart';
+
+import 'package:flutter_train_app/widget/reservation_check_button.dart';
 
 import 'package:flutter_train_app/widget/selectbutton.dart';
 import 'package:flutter_train_app/page/station_part.dart';
@@ -8,7 +11,9 @@ import 'package:flutter_train_app/page/station_part.dart';
 //출발역과 도착역을 선택한 후 좌석 선택 페이지로 이동하는 역할을 합니다.
 //출발역과 도착역이 선택되지 않은 경우에는 경고 다이얼로그를 표시합니다.
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final List<String>? selectedSeats;
+  final StationModel? selectedStation;
+  const HomePage({super.key, this.selectedSeats, this.selectedStation});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -17,10 +22,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String? startStation;
   String? endStation; // 출발역과 도착역을 상태 변수로 설정
+  Train train = Train();
+
   @override
   Widget build(BuildContext context) {
     // String? startStation;
     // String? endStation; 상태가 아닌 지역 변수로 설정 시 다른 위젯으로 이동시 감지를 못함
+
+    train.addReservation(widget.selectedSeats, widget.selectedStation);
+
     return Scaffold(
       appBar: AppBar(title: Text('기차 예매')),
 
@@ -65,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                     onSelected: (value) {
                       {
                         setState(() {
-                          endStation = value; // ✅콜백으로 받은 값 저장
+                          endStation = value; // 콜백으로 받은 값 저장
                         });
                       }
                     },
@@ -78,6 +88,12 @@ class _HomePageState extends State<HomePage> {
             SeatSelectButton(
               startStation: startStation,
               endStation: endStation,
+            ),
+            SizedBox(height: 20),
+
+            CheckButton(
+              reservations: train.reservations,
+              // 선택된 역을 totalStations에 추가하는 함수
             ),
           ],
         ),

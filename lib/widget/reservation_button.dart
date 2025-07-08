@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/page/homepage.dart';
+import 'package:flutter_train_app/train_model.dart';
 
 //예약하기 버튼 위젯
 //선택된 좌석을 보여주고 예매를 확인하는 다이얼로그
@@ -8,7 +9,12 @@ import 'package:flutter_train_app/page/homepage.dart';
 //선택된 좌석이 없을 때는 경고 메시지를 표시합니다.
 class ReservationButton extends StatelessWidget {
   final List<String> selectedSeats;
-  const ReservationButton({super.key, required this.selectedSeats});
+  final StationModel selectedStation;
+  const ReservationButton({
+    super.key,
+    required this.selectedSeats,
+    required this.selectedStation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +57,10 @@ class ReservationButton extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                          builder: (context) => HomePage(),
+                          builder: (context) => HomePage(
+                            selectedSeats: sortedSeats,
+                            selectedStation: selectedStation,
+                          ),
                         ), // 홈 페이지로 이동
                         (route) => false, // 이전 페이지 모두 제거
                         //물론 pop 두번도 가능하지만 자유도면을 고려하여 선택
