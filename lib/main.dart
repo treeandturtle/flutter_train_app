@@ -17,27 +17,24 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
 
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.white,
+          seedColor: Colors.white, // 시드 컬러
           brightness: Brightness.light,
-          primaryContainer: Colors.white,
-          onPrimaryContainer: Colors.white,
-          primary: Colors.blue,
-          onPrimary: Colors.blue,
+          primary: Colors.blue, // cupartino 확인 버튼 주요 버튼 강조 색상
+          primaryContainer: Colors.white, //출발 도착 역 컨테이너 색상
         ),
-        scaffoldBackgroundColor: Colors.grey[200],
-        focusColor: Colors.red,
+        scaffoldBackgroundColor: Colors.grey[200], //배경색 설정
       ),
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.black38,
-          primary: Colors.blue,
-          surface: Colors.black38,
+          primary: Colors.blue, // cupartino 확인 버튼 주요 버튼 강조 색상
+          surface: Colors.black38, //다크모드 앱바 색상
 
-          primaryContainer: Colors.grey[800],
+          primaryContainer: Colors.grey[800], //다크모드 출발 도착 역 컨테이너 색상
 
           brightness: Brightness.dark,
         ),
-        scaffoldBackgroundColor: Colors.black38,
+        scaffoldBackgroundColor: Colors.black38, //다크모드 배경색 설정
 
         useMaterial3: true,
       ),

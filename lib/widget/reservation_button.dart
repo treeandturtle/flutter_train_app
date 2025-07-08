@@ -27,23 +27,20 @@ class ReservationButton extends StatelessWidget {
                       ? '선택된 좌석이 없습니다.'
                       : // 선택된 좌석이 없을 때 메시지
                         '선택한 좌석: ${sortedSeats.join(', ')}',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: const Color.fromARGB(137, 171, 45, 45),
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                 ),
 
                 // 선택된 좌석을 보여주는 메시지
                 actions: [
                   CupertinoDialogAction(
+                    isDestructiveAction: true, // 취소 버튼을 강조
                     child: const Text('취소'),
                     onPressed: () {
                       Navigator.of(context).pop(); // 다이얼로그만 닫기
                     },
                   ),
                   CupertinoDialogAction(
-                    isDestructiveAction: true,
+                    isDefaultAction: true,
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
@@ -53,7 +50,13 @@ class ReservationButton extends StatelessWidget {
                         //물론 pop 두번도 가능하지만 자유도면을 고려하여 선택
                       );
                     },
-                    child: const Text('확인'),
+                    child: Text(
+                      '확인',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ],
               );
