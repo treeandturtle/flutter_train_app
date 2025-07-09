@@ -39,6 +39,9 @@ Flutter의 **기본 위젯 구조**와 **상태 관리 원리**를 이해하고 
 - **다크 테마 구조 적용**  
   `ThemeMode`, `ColorScheme`로 테마 구조 작성
 
+- **나만의 기능(홈페이지 예약 내역 확인 추가)**  
+  `reservation_check_button`, `reservation_page`로 예약 내역 확인 버튼 및 페이지 추가
+
 ---
 
 ## 📂 주요 파일 구조 및 설명
@@ -61,6 +64,7 @@ Flutter의 **기본 위젯 구조**와 **상태 관리 원리**를 이해하고 
 - 같은 역 선택 제한: 다이얼로그로 안내 (`CupertinoAlertDialog`)
 - 출발/도착역 모두 선택 시 `SeatPage`로 이동
 - `destructive`/`default` action 차이 주석 처리
+  ![홈페이지 화면](/images/homepage.png)
 
 ---
 
@@ -70,6 +74,7 @@ Flutter의 **기본 위젯 구조**와 **상태 관리 원리**를 이해하고 
 - Props: `stationtitle`, `excludeStation` (중복 선택 방지)
 - `ListView.builder`: `train_model.dart`의 역 리스트 출력
 - `onTap`: 선택된 역을 `Navigator.pop`으로 반환
+  ![역 페이지 화면](/images/stationpage.png)
 
 ---
 
@@ -81,6 +86,7 @@ Flutter의 **기본 위젯 구조**와 **상태 관리 원리**를 이해하고 
 - `Seat`: 좌석 선택 가능/불가능 상태 UI → 클릭 시 상태 변경
 - `ReservationButton`: 좌석 선택 완료 시 활성화 → 예약 처리
 - 주석: 선택 로직, `setState` 흐름, 조건부 UI 표현
+  ![자리 선택 페이지 화면](/images/seatpage.png)
 
 ---
 
@@ -89,17 +95,28 @@ Flutter의 **기본 위젯 구조**와 **상태 관리 원리**를 이해하고 
 - `SelectButton`: 공통 선택 버튼
 
   - Props: `label`, `color`, `onPressed` → 역할 주석 포함
+    ![선택 버튼 화면](/images/selectbutton.png)
 
 - `Seat`: 한 좌석 단위 UI
 
   - 선택 상태에 따라 색상/아이콘 변경, 클릭 시 상태 토글
+    ![좌석 선택이 없을 경우](/images/seatpageerror.png)
 
 - `SeatLine`: 좌석 배치 `Row`
 
   - 반복 배치 로직 주석 포함
 
 - `ReservationButton`: 예약 조건 만족 시만 활성화
+
   - 클릭 시 처리 로직 포함
+
+  ![예약 버튼 화면](/images/reservation.png)
+
+- `Reservation_check_button`: 예약 시만 예약 내역 확인 활성화
+
+  - 클릭 시 처리 로직 포함
+
+  ![예약 확인 화면](/images/reservationcheck.png)
 
 ---
 
